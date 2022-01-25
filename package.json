@@ -1,0 +1,38 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "DEV='true' nuxt",
+    "build": "network='bch' nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "deploy": "truffle deploy --reset --network development",
+    "lint:prettier": "prettier --check .",
+    "lint": "yarn lint:prettier",
+    "lintfix": "prettier --write --list-different ."
+  },
+  "dependencies": {
+    "@nuxtjs/composition-api": "^0.31.0",
+    "@pinia/nuxt": "^0.1.8",
+    "axios": "^0.24.0",
+    "core-js": "^3.19.3",
+    "global": "^4.4.0",
+    "markdown-loader": "^6.0.0",
+    "marked": "^4.0.12",
+    "node-fetch": "2",
+    "nuxt": "^2.15.8",
+    "pinia": "^2.0.9",
+    "prettier-plugin-solidity": "^1.0.0-beta.19",
+    "vee-validate": "^3.4.14",
+    "vue": "^2.6.14",
+    "vue-server-renderer": "^2.6.14",
+    "vue-template-compiler": "^2.6.14",
+    "web3": "^1.6.1",
+    "webpack": "^4.46.0"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^8.3.0",
+    "prettier": "^2.5.1"
+  }
+}

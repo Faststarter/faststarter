@@ -1,0 +1,278 @@
+/** Reset **/
+body,
+html,
+#__nuxt,
+#__layout,
+#__layout > * {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.row > * {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+ul:not(.markdown ul) {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.row {
+  margin: 0;
+}
+
+hr:not([size]),
+.progress {
+  padding: 0;
+  margin: 0.5rem 0rem 1rem 0rem;
+  height: 5px;
+  border-radius: 100px;
+  background-color: #e9ecef;
+  opacity: 1;
+}
+
+hr.line {
+  height: 1px;
+  border-radius: 0;
+  margin: 5px 0;
+}
+
+.no-link a,
+a.no-link {
+  color: inherit;
+  text-decoration: none;
+}
+.align-center {
+  display: flex;
+  align-items: center;
+}
+.align-center > * {
+  margin: 0 2px;
+}
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* Reset focus shadow */
+*:focus,
+*::-webkit-slider-thumb {
+  outline: none;
+  box-shadow: none !important;
+}
+/* Customize */
+.donate-field {
+  padding: 1rem 0.5rem;
+  margin: 1rem 0;
+}
+
+.donate-field > * {
+  transition: all 1s ease-in-out;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.donate-field > .show {
+  max-height: 65rem;
+}
+
+.donate-status {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.donate-field .donate-section small {
+  margin-top: 10px;
+}
+
+.donate-field .donate-form {
+  display: flex;
+  align-items: center;
+}
+
+.donate-field .donate-form button {
+  white-space: nowrap;
+}
+
+.donate-field .donate-form input[type="range"] {
+  margin-right: 5px;
+}
+
+aside section {
+  padding-bottom: 1.4rem;
+}
+
+.recipient-list > li {
+  --margin: 5px;
+  width: calc(50% - calc(var(--margin) * 2));
+  height: 210px;
+  display: inline-flex;
+  margin: var(--margin);
+}
+
+@media (min-width: 768px) {
+  .recipient-list > li {
+    width: 100%;
+    margin: var(--margin) 0;
+  }
+}
+
+.recipient-list > li > a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+
+.recipient-list > li > a > img {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  object-fit: cover;
+  display: block;
+  overflow: hidden;
+}
+
+.recipient-list > li > a > span {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.track-input:not(:disabled) {
+  border-style: none;
+  border-bottom-style: solid;
+  border-radius: 0;
+}
+.track-input:disabled {
+  border-style: none;
+  background: none;
+}
+.tracks-list {
+  display: flex;
+  flex-direction: column;
+}
+.tracks-list .track {
+  justify-content: space-between;
+  flex-direction: row;
+  align-content: center;
+}
+.tracks-list > * {
+  order: 1;
+}
+
+.contribution-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  list-style-position: inside;
+}
+
+.contribution-list > li {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  margin: 0;
+
+  margin-bottom: 1rem;
+}
+
+.contribution-list > li > span {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  word-break: break-word;
+  justify-content: center;
+}
+
+.contributionWaves {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 4rem;
+  width: 16rem;
+  z-index: 1;
+
+  background-image: url("/water.png");
+  background-repeat: repeat-x;
+  background-size: contain;
+  background-position: 0 4rem;
+
+  animation-name: horizontalBackgroundMovement;
+  animation-timing-function: linear;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+.contribution-list > li > div {
+  box-sizing: border-box;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  box-shadow: 0 0 2px 0px grey;
+}
+
+.contribution-list > li > div > .contributionPercent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+}
+
+.contribution-list > li > span > span {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contribution-list > li > span > q {
+  font-size: 0.8rem;
+  color: rgba(0, 0, 0, 0.42);
+}
+
+.contribution-list > li > span > small {
+  color: rgba(0, 0, 0, 0.42);
+}
+
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  right: 0;
+  background: white;
+  z-index: 999;
+}
+
+/** Animations **/
+@keyframes horizontalBackgroundMovement {
+  /* use in contribution waves */
+  from {
+    transform: translate(-4rem, 0);
+  }
+  to {
+    transform: translate(-8rem, 0);
+  }
+}
