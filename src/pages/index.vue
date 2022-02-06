@@ -55,11 +55,49 @@ export default defineComponent({
       campaign,
     };
   },
-  head: {
-    link: [
-      { rel: "stylesheet", href: "/css/main.css" },
-      { rel: "stylesheet", href: "/css/markdown.css" },
-    ],
+  head() {
+    let info = this.campaign.info;
+    return {
+      title: info.title,
+      meta: [
+        {
+          property: "og:title",
+          content: info.title,
+        },
+        {
+          property: "og:description",
+          content: info.summaryHtml.replace(/<\/?[^>]+(>|$)/g, ""),
+        },
+        {
+          property: "og:image",
+          content: "/thumbnail.png",
+        },
+        {
+          name: "twitter:image",
+          content: "/thumbnail.png",
+        },
+        {
+          name: "twitter:title",
+          content: info.title,
+        },
+        {
+          name: "twitter:description",
+          content: info.summaryHtml.replace(/<\/?[^>]+(>|$)/g, ""),
+        },
+        {
+          name: "twitter:card",
+          content: "summary_large_image",
+        },
+        {
+          name: "twitter:site",
+          content: "@site_twitter_handle",
+        },
+      ],
+      link: [
+        { rel: "stylesheet", href: "/css/main.css" },
+        { rel: "stylesheet", href: "/css/markdown.css" },
+      ],
+    };
   },
 });
 </script>
