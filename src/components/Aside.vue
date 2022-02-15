@@ -28,6 +28,28 @@
     <section>
       <div>
         <span class="align-center">
+          <img src="/icons/address.svg" alt="" />
+          <span>Contract address</span>
+        </span>
+      </div>
+      <hr />
+      <p>
+        <span class="alert d-block alert-warning"> beta feature </span>
+        Here you can send money to the contract to donate without linking your
+        wallet to the site
+        <br />
+        <br />
+        Note the name will be anonymous
+        <br />
+        <img :src="qrCode(address)" class="m-auto d-block" alt="" />
+        <small>Address contract (smart bitcoin cash)</small>
+        <span class="contract-address"> {{ address }} </span>
+      </p>
+    </section>
+
+    <section>
+      <div>
+        <span class="align-center">
           <img src="/icons/volunteer.svg" alt="" />
           <b class="mx-1" id="campaignContributorCount">{{
             contributions.length
@@ -59,16 +81,23 @@
 
 <script>
 import { defineComponent, computed } from "@nuxtjs/composition-api";
-import { campaignStore } from "../store/index.js";
+import { campaignStore, websiteStore } from "../store/index.js";
 
 export default defineComponent({
   setup() {
     let campaign = campaignStore();
+    let website = websiteStore();
 
     let contributions = computed(() => campaign.contributors);
     let recipients = computed(() => campaign.recipients);
+    let address = computed(() => website.env.contractAddress);
 
-    return { contributions, recipients };
+    function qrCode(address) {
+      address = encodeURIComponent(address);
+      return `https://chart.googleapis.com/chart?cht=qr&chl=ethereum%3A%3Famount%${address}&chs=180x180&choe=UTF-8&chld=L|2' alt='qr code`;
+    }
+
+    return { contributions, recipients, qrCode, address };
   },
 });
 </script>

@@ -168,6 +168,15 @@ aside section {
   order: 1;
 }
 
+.contract-address {
+  word-break: break-all;
+  display: block;
+  background: var(--bs-body-color);
+  color: white;
+  padding: 8px;
+  border-radius: 5px;
+}
+
 .contribution-list {
   margin: 0;
   padding: 0;

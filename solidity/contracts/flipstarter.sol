@@ -203,4 +203,8 @@ contract flipstarter {
     function balance() public view returns (uint256) {
         return address(this).balance;
     }
+
+    receive() external payable {
+        pledge("anonymous", "");
+    }
 }
