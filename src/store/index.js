@@ -307,6 +307,7 @@ export const campaignStore = defineStore({
     async getBrowserData() {
       this.contributionAmount = await this.callFunction("getAmount");
       this.isEnd = await this.callFunction("isEnd");
+      this.balance = await this.callFunction("balance");
 
       await this.getContributors();
     },
