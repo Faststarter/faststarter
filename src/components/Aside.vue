@@ -93,8 +93,9 @@ export default defineComponent({
     let address = computed(() => website.env.contractAddress);
 
     function qrCode(address) {
-      address = encodeURIComponent(address);
-      return `https://chart.googleapis.com/chart?cht=qr&chl=ethereum%3A%3Famount%${address}&chs=180x180&choe=UTF-8&chld=L|2' alt='qr code`;
+      address = encodeURIComponent("ethereum:" + address);
+
+      return `https://chart.googleapis.com/chart?cht=qr&chl=${address}&chs=180x180&choe=UTF-8&chld=L|2' alt='qr code`;
     }
 
     return { contributions, recipients, qrCode, address };
