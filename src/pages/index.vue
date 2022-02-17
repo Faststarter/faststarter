@@ -16,13 +16,20 @@
       <!-- Campaign sidebar -->
       <Aside />
     </main>
+    <!-- Guide of website -->
+    <Guide />
+
     <!-- Footer of website -->
     <footer class="bg-primary mt-2 no-link py-3 text-center text-white">
       <a href="https://faststarter.org" target="_blank">
         Powered by Faststarter
       </a>
     </footer>
+
+    <!-- Alert box -->
     <Alert />
+
+    <!-- Loading section -->
     <Loading />
   </div>
 </template>
