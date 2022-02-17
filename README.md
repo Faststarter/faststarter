@@ -1,3 +1,5 @@
+![thumbnail](src/static/thumbnail.png)
+
 # Fast starter
 
 It is a project whose goal is to compete with Flip Starter, but for the smartBCH network, which gives huge and unlimited possibilities.
