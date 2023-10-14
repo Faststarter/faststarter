@@ -143,7 +143,7 @@ export const websiteStore = defineStore({
       try {
         if (!process.browser) return;
         let respons = await axios.get(
-          "https://bitpay.com/api/rates/" + this.crypto.codeCoin
+          "https://markets.api.bitcoin.com/rates?c=" + this.crypto.codeCoin
         );
         this.currencyRates = respons.data;
         this.setPrice();
